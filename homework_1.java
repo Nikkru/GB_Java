@@ -13,7 +13,7 @@ class homework_1 {
         System.out.print("Введите целое число: ");
         int number = in.nextInt();
         what_number(number);
-        
+
 
         Scanner in_2 = new Scanner(System.in);
         System.out.print("Введите целое число: ");
@@ -21,9 +21,21 @@ class homework_1 {
         if (number_1 == 0) {
             System.out.println(number_1 + " не подходящее во условию ввода число");
         } else {
-            System.out.println("Число " + number_1 + " - " + is_Number(number));
+            System.out.println("Число " + number_1 + " - " + is_Number(number_1));
         }
+
+        Scanner in_3 = new Scanner(System.in);
+        System.out.print("Введите строку для вывода в консоль: ");
+        String string_1 = in_3.nextLine();
         
+        Scanner in_4 = new Scanner(System.in);
+        System.out.print("Введите число повторений вывода строки в консоль: ");
+        int number_2 = in_4.nextInt();
+        
+        print_String(number_2, string_1);
+        
+        in.close();
+        in_2.close();
     }
     
     /*
@@ -77,4 +89,15 @@ class homework_1 {
         } 
     }
 
+    /*
+    Задание 4. 
+    Написать метод, которому в качестве аргументов передается строка и число, 
+    метод должен отпечатать в консоль указанную строку, указанное количество раз;
+     */
+    private static void print_String(int num, String str) {
+        System.out.println("Задание №4.");
+        for (int i = 0; i < num; i++) {
+            System.out.println((i+1) + ". " + str);
+        }
+    }
 }
