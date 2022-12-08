@@ -1,3 +1,4 @@
+import java.text.BreakIterator;
 import java.util.Scanner;
 class homework_1 {  
     public static void main(String[] args) {
@@ -12,7 +13,17 @@ class homework_1 {
         System.out.print("Введите целое число: ");
         int number = in.nextInt();
         what_number(number);
-        in.close();
+        
+
+        Scanner in_2 = new Scanner(System.in);
+        System.out.print("Введите целое число: ");
+        int number_1 = in_2.nextInt();
+        if (number_1 == 0) {
+            System.out.println(number_1 + " не подходящее во условию ввода число");
+        } else {
+            System.out.println("Число " + number_1 + " - " + is_Number(number));
+        }
+        
     }
     
     /*
@@ -45,6 +56,25 @@ class homework_1 {
         } else {
             System.out.println("Введены некорректные данные");
         }
+    }
+
+    /*
+        Задача 3.
+        Написать метод, которому в качестве параметра передается целое число. 
+        Метод должен вернуть true, если число отрицательное, 
+        и вернуть false если положительное.
+     */
+
+    private static boolean is_Number(int num) {
+        System.out.println("Задание №3.");
+        boolean isNum;
+        if (num < 0) {
+            isNum = true;
+            return isNum;
+        } else {
+            isNum = false;
+            return isNum;
+        } 
     }
 
 }
