@@ -2,19 +2,19 @@ import java.text.BreakIterator;
 import java.util.Scanner;
 class homework_1 {  
     public static void main(String[] args) {
-        
+// Task 1.    
         System.out.println(is_Sum_In_Range(
             2, 
             3, 
             10, 
             20));
-
+// Task 2.
         Scanner in = new Scanner(System.in);
         System.out.print("Введите целое число: ");
         int number = in.nextInt();
         what_number(number);
 
-
+// Task 3.
         Scanner in_2 = new Scanner(System.in);
         System.out.print("Введите целое число: ");
         int number_1 = in_2.nextInt();
@@ -23,7 +23,7 @@ class homework_1 {
         } else {
             System.out.println("Число " + number_1 + " - " + is_Number(number_1));
         }
-
+// Task 4.
         Scanner in_3 = new Scanner(System.in);
         System.out.print("Введите строку для вывода в консоль: ");
         String string_1 = in_3.nextLine();
@@ -31,8 +31,13 @@ class homework_1 {
         Scanner in_4 = new Scanner(System.in);
         System.out.print("Введите число повторений вывода строки в консоль: ");
         int number_2 = in_4.nextInt();
-        
+
         print_String(number_2, string_1);
+// Task 5.
+        Scanner in_5 = new Scanner(System.in);
+        System.out.print("Введите число повторений вывода строки в консоль: ");
+        int year_ = in_5.nextInt();
+        System.out.println(year_ + " это високосный год - " + is_Year(year_));
         
         in.close();
         in_2.close();
@@ -98,6 +103,28 @@ class homework_1 {
         System.out.println("Задание №4.");
         for (int i = 0; i < num; i++) {
             System.out.println((i+1) + ". " + str);
+        }
+    }
+    /*
+     * Задание №5.
+     * Написать метод, который определяет, является ли год високосным, 
+     * и возвращает boolean (високосный - true, не високосный - false). 
+     * Каждый 4-й год является високосным, кроме каждого 100-го, 
+     * при этом каждый 400-й – високосный.
+     */
+    private static boolean is_Year(int year) {
+        System.out.println("Задание №5.");
+        if (year % 100 == 0) {
+            return true;
+        }
+        else if (year % 400 == 0) {
+            return false;
+        }
+        else if (year % 4 == 0) {
+            return false;
+        }
+        else {
+            return true;
         }
     }
 }
