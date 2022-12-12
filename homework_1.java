@@ -166,10 +166,9 @@ class homework_1 {
         System.out.println("Задание №6.");
         int[] a = new int[arr.length];
         int i = 0;
-        boolean b = false;
         for (int d : arr) {
             if (d == 0 | d == 1) {
-                d = (d>0) ? 0 : 1;
+                d = (d > 0) ? 0 : 1;
                 a[i] = d;
                 i++;
             } else {
@@ -186,11 +185,27 @@ class homework_1 {
     private static int[] make_array(int n) {
         System.out.println("Задание №7.");
         int[] a = new int[n];
-        int i = 0;
+        int i = 1;
         for (int _ : a) {
-            i++;
-            a[i] = i;
+            a[i-1] = i++;
         }
         return a;
+    }
+    /*
+     * Задать массив [ 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 ]
+     * пройти по нему циклом, и числа меньшие 6 умножить на 2;
+     */
+    private static int[] change_array(int[] arr) {
+        System.out.println("Задание №8.");
+        int i = 0;
+        for (int d : arr) {
+            if (d < 6) {
+                arr[i] = d * 2;
+                i++;
+            } else {
+                i++;
+            }
+            }
+        return arr;
     }
 }
