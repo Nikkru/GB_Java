@@ -56,6 +56,14 @@ class homework_1 {
         array = inversion_booling(array);
         System.out.println(Arrays.toString(array));
 
+// Task 7.
+// Задайте величину массива для заполнения его порядковыми числами
+        Scanner in_6 = new Scanner(System.in);  
+        System.out.print("Введите размер массива: ");    
+        int size = in_6.nextInt();
+        int a[] = make_array(size);
+        System.out.println(Arrays.toString(a));
+
         in.close();
         in_2.close();
         in_3.close();
@@ -168,6 +176,20 @@ class homework_1 {
                 a[i] = d;
                 i++;
             }
+        }
+        return a;
+    }
+    /*
+     * Задать пустой целочисленный массив длиной 100. 
+     * С помощью цикла заполнить его значениями 1 2 3 4 5 6 7 8 … 100;
+     */
+    private static int[] make_array(int n) {
+        System.out.println("Задание №7.");
+        int[] a = new int[n];
+        int i = 0;
+        for (int _ : a) {
+            i++;
+            a[i] = i;
         }
         return a;
     }
