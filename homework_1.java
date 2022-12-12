@@ -69,6 +69,13 @@ class homework_1 {
         ar = change_array(ar);
         System.out.println(Arrays.toString(ar));
 
+// Task 8
+//  Ввести размер двумерного квадратного массива 
+        Scanner in_7 = new Scanner(System.in);  
+        System.out.print("Введите размер массива: ");    
+        int size_ = in_7.nextInt();
+        make_td_array(size_);
+
         in.close();
         in_2.close();
         in_3.close();
@@ -76,6 +83,7 @@ class homework_1 {
         in_5.close();
         obj.close();
         in_6.close();
+        in_7.close();
     }
     
     /*
@@ -213,5 +221,27 @@ class homework_1 {
             }
             }
         return arr;
+    }
+     /*
+     * Создать квадратный двумерный целочисленный массив 
+     * (количество строк и столбцов одинаковое), 
+     * и с помощью цикла(-ов) заполнить его диагональные элементы единицами 
+     * (можно только одну из диагоналей, если обе сложно). 
+     * Определить элементы одной из диагоналей можно по следующему принципу: 
+     * индексы таких элементов равны, то есть [0][0], [1][1], [2][2], …, [n][n];
+     */
+    private static int[][] make_td_array(int n) {
+        System.out.println("Задание №8.");
+        int[][] td_array = new int[n][n];
+        for (int i = 0; i < td_array.length; i++){
+            for(int j = 0; j < td_array[i].length; j++){
+               if ((i==j) | (i+j==td_array.length-1)) {
+                   td_array[i][j] = 1;
+               }
+                System.out.printf("%d ", td_array[i][j]);
+            }
+            System.out.println();
+        }
+        return td_array;
     }
 }
