@@ -64,12 +64,18 @@ class homework_1 {
         int a[] = make_array(size);
         System.out.println(Arrays.toString(a));
 
+        int[] ar = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        System.out.println(Arrays.toString(ar));
+        ar = change_array(ar);
+        System.out.println(Arrays.toString(ar));
+
         in.close();
         in_2.close();
         in_3.close();
         in_4.close();
         in_5.close();
         obj.close();
+        in_6.close();
     }
     
     /*
