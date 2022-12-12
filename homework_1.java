@@ -1,4 +1,6 @@
+import java.sql.Array;
 import java.text.BreakIterator;
+import java.util.Arrays;
 import java.util.Scanner;
 class homework_1 {  
     public static void main(String[] args) {
@@ -35,12 +37,31 @@ class homework_1 {
         print_String(number_2, string_1);
 // Task 5.
         Scanner in_5 = new Scanner(System.in);
-        System.out.print("Введите число повторений вывода строки в консоль: ");
+        System.out.print("Введите год, чтобы узнать високосный ли он: ");
         int year_ = in_5.nextInt();
         System.out.println(year_ + " это високосный год - " + is_Year(year_));
-        
+// Task 6.
+// заполняем массив 0 и 1 для конвертации
+        int number_;  
+        Scanner obj = new Scanner(System.in);  
+        System.out.print("Введите размер массива: ");    
+        number_= obj.nextInt();    
+        int[] array = new int[number_];  
+        System.out.println("Заполните массив значениями 0 или 1: ");  
+        for(int i=0; i<number_; i++)  
+        {     
+            array[i] = obj.nextInt(); //reads elements from the user 
+        }   
+        System.out.println(Arrays.toString(array)); 
+        array = inversion_booling(array);
+        System.out.println(Arrays.toString(array));
+
         in.close();
         in_2.close();
+        in_3.close();
+        in_4.close();
+        in_5.close();
+        obj.close();
     }
     
     /*
@@ -114,17 +135,40 @@ class homework_1 {
      */
     private static boolean is_Year(int year) {
         System.out.println("Задание №5.");
-        if (year % 100 == 0) {
+        if (year % 400 == 0) {
             return true;
         }
-        else if (year % 400 == 0) {
+        else if (year % 100 == 0) {
             return false;
         }
         else if (year % 4 == 0) {
-            return false;
-        }
-        else {
             return true;
         }
+        else {
+            return false;
+        }
+    }
+    /*
+     * Задание №6.
+     * Задать целочисленный массив, состоящий из элементов 0 и 1. 
+     * Например: [ 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 ]. 
+     * С помощью цикла и условия заменить 0 на 1, 1 на 0;
+     */
+    private static int[] inversion_booling(int[] arr) {
+        System.out.println("Задание №6.");
+        int[] a = new int[arr.length];
+        int i = 0;
+        boolean b = false;
+        for (int d : arr) {
+            if (d == 0 | d == 1) {
+                d = (d>0) ? 0 : 1;
+                a[i] = d;
+                i++;
+            } else {
+                a[i] = d;
+                i++;
+            }
+        }
+        return a;
     }
 }
