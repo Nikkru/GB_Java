@@ -63,18 +63,41 @@ class homework_1 {
         int size = in_6.nextInt();
         int a[] = make_array(size);
         System.out.println(Arrays.toString(a));
-
+// Task 8.
         int[] ar = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         System.out.println(Arrays.toString(ar));
         ar = change_array(ar);
         System.out.println(Arrays.toString(ar));
 
-// Task 8
+// Task 9
 //  Ввести размер двумерного квадратного массива 
         Scanner in_7 = new Scanner(System.in);  
         System.out.print("Введите размер массива: ");    
         int size_ = in_7.nextInt();
         make_td_array(size_);
+
+// Task 10.
+// Введите размер требуемого массива и значение для инициализации
+        Scanner in_8 = new Scanner(System.in);
+        System.out.print("Введите размер массива: ");
+        int len = in_8.nextInt();
+        System.out.print("Введите значение для заполнения массива: ");
+        int initial_value = in_8.nextInt();
+        int[] new_arr = make_new_array(len, initial_value);
+        System.out.println(Arrays.toString(new_arr));
+/*
+ * Task 11.
+ * Задать одномерный массив и найти в нем минимальный и максимальный элементы ;
+ */
+        int[] old_arr = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 };
+        int max_ = old_arr[1];
+        int min_ = old_arr[1];
+        for (int d : old_arr) {
+            max_ = d > max_ ? d : max_;
+            min_ = d < min_ ? d : min_;
+        }
+        System.out.print("Наибольшее число массива: " + max_ + ". Наименьшее число массива: " + min_ + "\n");
+    
 
         in.close();
         in_2.close();
@@ -84,6 +107,7 @@ class homework_1 {
         obj.close();
         in_6.close();
         in_7.close();
+        in_8.close();
     }
     
     /*
@@ -193,6 +217,7 @@ class homework_1 {
         return a;
     }
     /*
+    * Task 7.
      * Задать пустой целочисленный массив длиной 100. 
      * С помощью цикла заполнить его значениями 1 2 3 4 5 6 7 8 … 100;
      */
@@ -206,6 +231,7 @@ class homework_1 {
         return a;
     }
     /*
+    * Task 8.
      * Задать массив [ 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 ]
      * пройти по нему циклом, и числа меньшие 6 умножить на 2;
      */
@@ -223,6 +249,7 @@ class homework_1 {
         return arr;
     }
      /*
+     * Task 9.
      * Создать квадратный двумерный целочисленный массив 
      * (количество строк и столбцов одинаковое), 
      * и с помощью цикла(-ов) заполнить его диагональные элементы единицами 
@@ -240,6 +267,35 @@ class homework_1 {
                }
                 System.out.printf("%d ", td_array[i][j]);
             }
+            System.out.println();
+        }
+        return td_array;
+    }
+     /*
+     * Task 10.
+     * Написать метод, принимающий на вход два аргумента: len и initialValue, 
+     * и возвращающий одномерный массив типа int длиной len, 
+     * каждая ячейка которого равна initialValue;
+     */
+    private static int[] make_new_array(int len, int initialValur) {
+        System.out.println("Задание №9.");
+        int[] td_array = new int[len];
+        for (int i = 0; i < td_array.length; i++){
+            td_array[i] = initialValur;
+            System.out.println();
+        }
+        return td_array;
+    }
+
+         /*
+     * Task 11.
+     * Задать одномерный массив и найти в нем минимальный и максимальный элементы ;
+     */
+    private static int[] make_new__array(int len, int initialValur) {
+        System.out.println("Задание №9.");
+        int[] td_array = new int[len];
+        for (int i = 0; i < td_array.length; i++){
+            td_array[i] = initialValur;
             System.out.println();
         }
         return td_array;
