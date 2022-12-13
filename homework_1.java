@@ -98,6 +98,12 @@ class homework_1 {
         }
         System.out.print("Наибольшее число массива: " + max_ + ". Наименьшее число массива: " + min_ + "\n");
     
+// Task 12.
+        String[] arr_1 = {"aaa", "aab", "aac"};
+        String[] arr_2 = {"aba", "bab", "cac"};
+
+        String prefix = seach_prefix(arr_1);
+        System.out.println(prefix);
 
         in.close();
         in_2.close();
@@ -116,11 +122,11 @@ class homework_1 {
         что их сумма лежит в пределах от 10 до 20 (включительно), 
         если да – вернуть true, в противном случае – false.
      */
-    private static boolean is_Sum_In_Range( int num_1, 
+        private static boolean is_Sum_In_Range( int num_1, 
                                             int num_2, 
                                             int range_from, 
                                             int range_to) {
-        System.out.println("Задание №1. Написать метод, принимающий на вход два целых числа и проверяющий, что их сумма лежит в пределах от 10 до 20 (включительно), если да – вернуть true, в противном случае – false");
+        System.out.println("Задание №1.");
         return range_from <= num_1 + num_2 && num_1 + num_2 <= range_to;
     }
     /*
@@ -300,4 +306,21 @@ class homework_1 {
         }
         return td_array;
     }
+
+    private static String seach_prefix(String[] str) {
+        System.out.println("Задание №12.");
+        String str_pre = "";
+        for (int i = 0; i < str.length-1; i++) {
+             
+            for (int j = 0, g = 1; j < str.length-1 && g < str[i].length(); j++, g++) {
+                if (str[i].charAt(j) != str[g].charAt(j)){
+                    break;
+                } else {
+                    str_pre += str[i].charAt(j);
+                    g++;
+                }
+            }
+        }
+        return str_pre;
+}
 }
