@@ -9,8 +9,8 @@ public class lesson_4 {
         ArrayList<Integer> arrayList = new ArrayList<>();
         LinkedList<Integer> lenkedList = new LinkedList<>();
 
-        getDelay(10, arrayList, "ArrayList");
-        getDelay(10, lenkedList, "LinkedArray");
+        // getDelay(10, "ArrayList");
+        getDelay(10, "LinkedArray");
     }
     public static long feelList(List<Integer> numbers) {
        long start = System.currentTimeMillis();
@@ -22,10 +22,12 @@ public class lesson_4 {
         return delay; 
     }
 
-    public static void getDelay(Integer count, List<Integer> num_, String name) {
+    public static void getDelay(Integer count, String name) {
         long sum_ = 0;
          for(int i = 0; i < count; i++){
-            sum_ += feelList(num_);
+            // ArrayList<Integer> arrayList = new ArrayList<>();
+            LinkedList<Integer> lenkedList = new LinkedList<>();
+            sum_ += feelList(lenkedList);
          }
          System.out.println("операция по созданию " + name + " составляет: " + sum_/count);
     }
