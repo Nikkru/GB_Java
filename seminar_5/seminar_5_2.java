@@ -16,9 +16,9 @@ public class seminar_5_2 {
     }
 
     private static boolean isCorrect(String sequence) {
-        // if (sequence.length()%2!=0) {
-        //     return false;
-        // }
+        if (sequence.length()%2!=0) {
+            return false;
+        }
         HashMap<Character, Character> bracketsDic = new HashMap<>();
         bracketsDic.put(')', '(');
         bracketsDic.put(']', '[');
