@@ -16,5 +16,4 @@ public class Plate {
                 return false;
             }
         }
-
 }

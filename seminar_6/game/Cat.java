@@ -3,27 +3,44 @@ package seminar_6.game;
 import java.util.Objects;
 
 public class Cat {
-    private String name;
+    public String name;
     private final int appetite;
-    private boolean satiety;
+    private int countEnergy;
+    private boolean satiety = makeSatiety();
 
-    public Cat(String name, int appetite) {
+    public Cat(String name, int appetite, int countEnergy) {
         this.name = name;
         this.appetite = appetite;
-        this.satiety = false;
+        this.countEnergy = countEnergy;
     }
 
-    public void eat(Plate plate) {
-        if (this.satiety) {
-            System.out.println("Кот сытый");
+    boolean makeSatiety() {
+        if (countEnergy > 9) {
+            return true;
         } else {
-            this.satiety = plate.decreaseFood(this.appetite);
-            if (this.satiety) {
-                System.out.println("Кот наелся");
+            return false;
+        }
+    }
+    public void eat(int eatCount) {
+        System.out.println("В миске есть " + eatCount + " корма. У миски кот " + name);
+        int needForFull = 0;
+        int nowApetit = appetite - appetite/10*countEnergy;
+        if (this.satiety) {
+            System.out.println(name + " сытый.");
+        } else {
+//            this.satiety = plate.decreaseFood(this.appetite);
+            if (nowApetit < eatCount) {
+                eatCount -= nowApetit;
+                countEnergy = 10;
+                satiety = makeSatiety();
+                System.out.println(name + " наелся.");
+                System.out.println("В миске осталось " + eatCount + " корма.");
             } else {
-                System.out.println("Кот не поел");
+                System.out.println(name + " не наелся.");
+                needForFull = nowApetit - appetite/10*countEnergy;
+                countEnergy += eatCount/(appetite/10);
+                System.out.println("Энергия кота теперь: " + countEnergy);
             }
-
         }
     }
 
