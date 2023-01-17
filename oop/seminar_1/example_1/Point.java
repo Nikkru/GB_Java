@@ -1,4 +1,4 @@
-package org.example.example;
+package oop.seminar_1.example_1;
 
 import java.util.Objects;
 
