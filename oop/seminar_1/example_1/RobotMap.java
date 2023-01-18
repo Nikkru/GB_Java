@@ -67,23 +67,17 @@ public class RobotMap {
             this.direction = DEFAULT_DIRECTION;
         }
 
-        public void move() throws RobotMoveException {
+        public void move(int stepCount) throws RobotMoveException {
             final MapPoint newPoint;
             try {
-                // newPoint = switch (direction) {
-                //     case TOP -> new MapPoint(point.getX() - 1, point.getY());
-                //     case RIGHT -> new MapPoint(point.getX(), point.getY() + 1);
-                //     case BOTTOM -> new MapPoint(point.getX() + 1, point.getY());
-                //     case LEFT -> new MapPoint(point.getX(), point.getY() - 1);
-                // };
                 if (direction == Direction.TOP) {
-                    newPoint = new MapPoint(point.getX(), point.getY() - 1);
+                    newPoint = new MapPoint(point.getX(), point.getY() - stepCount);
                 } else if (direction == Direction.RIGHT) {
-                    newPoint = new MapPoint(point.getX() + 1, point.getY());
+                    newPoint = new MapPoint(point.getX() + stepCount, point.getY());
                 } else if (direction == Direction.LEFT) {
-                    newPoint = new MapPoint(point.getX() - 1, point.getY());
+                    newPoint = new MapPoint(point.getX() - stepCount, point.getY());
                 } else {
-                    newPoint = new MapPoint(point.getX(), point.getY() + 1);
+                    newPoint = new MapPoint(point.getX(), point.getY() + stepCount);
                 }
                 validatePoint(newPoint);
             } catch (PointValidationException e) {

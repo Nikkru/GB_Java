@@ -25,8 +25,8 @@ public class Main {
             RobotMap.Robot robot = map1.createRobot(new Point(100, 10));
             System.out.println(robot);
             System.out.println(map1.toStringRobotsSize());
-            robot.changeDirection(Direction.RIGHT);
-            robot.move();
+            robot.changeDirection(Direction.LEFT);
+            robot.move(2);
         } catch (RobotCreationException e) {
             System.err.printf("Создать робота не удалось!");
         } catch (RobotMoveException e) {
@@ -35,7 +35,7 @@ public class Main {
         try {
             RobotMap.Robot robot1 = map1.createRobot(new Point(0, 0));
             robot1.changeDirection(Direction.BOTTOM);
-            robot1.move();
+            robot1.move(3);
         } catch (RobotCreationException e) {
             System.err.printf("Создать робота не удалось!");
         } catch (RobotMoveException e) {
