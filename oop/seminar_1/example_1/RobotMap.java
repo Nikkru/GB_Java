@@ -6,28 +6,28 @@ public class RobotMap {
 
     private final int n;
     private final int m;
+    private final int maxSize;
     private final List<Robot> robots; // пустой список по умолчанию в экземпляре класса
 
     public RobotMap(int n, int m, int maxRobotCount) {
         // TODO: 13.01.2023 Реализовать проверку входных параметров.
         this.n = n;
         this.m = m;
-        this.robots = new ArrayList<>(maxRobotCount);
+        this.robots = new ArrayList<>();
+        this.maxSize = maxRobotCount;
     }
 
     public Robot createRobot(Point point) throws RobotCreationException {
         final MapPoint robotPosition;
         try {
             validatePoint(point);
+            validateCountRobotsIsntMore(robots.size());
             robotPosition = new MapPoint(point.getX(), point.getY());
-//            Robot robot = new Robot(robotPosition);
-//            //  TODO: добваить в массив экземпляр класса с проверкой на переполнение массива
         } catch (PointValidationException e) {
             throw new RobotCreationException(e.getMessage());
         }
 
         Robot robot = new Robot(robotPosition);
-        //  TODO: добваить в массив экземпляр класса с проверкой на переполнение массива
         robots.add(robot);
         return robot;
     }
@@ -48,7 +48,7 @@ public class RobotMap {
     проверка не переполнение массива robots
      */
     private void validateCountRobotsIsntMore(int count_) throws RobotCreationException {
-        if (count_ > robots.size()) {
+        if (count_ == maxSize) {
             throw new RobotCreationException("Новый робот переполняет допустимый размер массива рботов - " + robots.size());
         }
     }
@@ -101,9 +101,10 @@ public class RobotMap {
             return point;
         }
 
+
         @Override
         public String toString() {
-            return "Robot-" + id + point;
+            return "(Robot: ID: " + id + " , координаты: " + point + ")";
         }
     }
 
@@ -117,5 +118,10 @@ public class RobotMap {
             }
         }
     }
-
+    public  String toStringRobotsSize() { return "Сейчас на карте есть " + robots.size() + " робот из " +
+            maxSize + " возможных";}
+    @Override
+    public String toString() {
+        return "Ширина карты - " + m + ", долгота - " + n + " , число роботов на карте не больше - " + maxSize;
+    }
 }
