@@ -12,7 +12,7 @@ public class RobotMap {
         // TODO: 13.01.2023 Реализовать проверку входных параметров.
         this.n = n;
         this.m = m;
-        this.robots = new ArrayList<>();
+        this.robots = new ArrayList<>(maxRobotCount);
     }
 
     public Robot createRobot(Point point) throws RobotCreationException {
@@ -20,11 +20,14 @@ public class RobotMap {
         try {
             validatePoint(point);
             robotPosition = new MapPoint(point.getX(), point.getY());
+//            Robot robot = new Robot(robotPosition);
+//            //  TODO: добваить в массив экземпляр класса с проверкой на переполнение массива
         } catch (PointValidationException e) {
             throw new RobotCreationException(e.getMessage());
         }
 
         Robot robot = new Robot(robotPosition);
+        //  TODO: добваить в массив экземпляр класса с проверкой на переполнение массива
         robots.add(robot);
         return robot;
     }
@@ -38,6 +41,15 @@ public class RobotMap {
             if (point.equals(robot.getPoint())) {
                 throw new PointValidationException("Позиция " + point + " занята другим роботом: " + robot);
             }
+        }
+    }
+
+    /*
+    проверка не переполнение массива robots
+     */
+    private void validateCountRobotsIsntMore(int count_) throws RobotCreationException {
+        if (count_ > robots.size()) {
+            throw new RobotCreationException("Новый робот переполняет допустимый размер массива рботов - " + robots.size());
         }
     }
 
@@ -65,13 +77,13 @@ public class RobotMap {
                 //     case LEFT -> new MapPoint(point.getX(), point.getY() - 1);
                 // };
                 if (direction == Direction.TOP) {
-                    newPoint = new MapPoint(point.getX()-1, point.getY());
-                } else if (direction == Direction.RIGHT) {
-                    newPoint = new MapPoint(point.getX(), point.getY() + 1);
-                } else if (direction == Direction.LEFT) {
                     newPoint = new MapPoint(point.getX(), point.getY() - 1);
+                } else if (direction == Direction.RIGHT) {
+                    newPoint = new MapPoint(point.getX() + 1, point.getY());
+                } else if (direction == Direction.LEFT) {
+                    newPoint = new MapPoint(point.getX() - 1, point.getY());
                 } else {
-                    newPoint =  new MapPoint(point.getX() + 1, point.getY());
+                    newPoint = new MapPoint(point.getX(), point.getY() + 1);
                 }
                 validatePoint(newPoint);
             } catch (PointValidationException e) {
