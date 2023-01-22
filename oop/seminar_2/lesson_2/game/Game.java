@@ -20,8 +20,6 @@ public class Game {
         Participant[] participants = createParticipants();
         Obstacle[] obstacles = createObstacles();
 
-        WallObstacleAdapter wallObstacleAdapter = new WallObstacleAdapter(new Wall(4));
-
         for (Participant participant : participants) {
             for (Obstacle obstacle : obstacles) {
                 boolean overcome = obstacle.overcome(participant);
@@ -36,9 +34,9 @@ public class Game {
 
     private static Participant[] createParticipants() {
         return new Participant[] {
-                new Cat_("Cat-1", 10, 2),
-                new Cat_("Cat-2", 8, 5),
-                new Human("Human-1", 8, 5, 3),
+                new Cat_("Cat-1", 10, 2, 1),
+                new Cat_("Cat-2", 8, 5, 1),
+                new Human("Human-1", 8, 5, 3, 220),
                 new Cheater("Cheater")
         };
     }
@@ -47,7 +45,8 @@ public class Game {
         return new Obstacle[] {
                 new RoadObstacleAdapter(new Road(9)),
                 new SwimmingPoolObstacleAdapter(new SwimmingPool(4)),
-                new WallObstacleAdapter(new Wall(4))
+                new WallObstacleAdapter(new Wall(4)),
+                new WeightliftingObstacleAdapter(new Weightlifting(200))
         };
     }
 
