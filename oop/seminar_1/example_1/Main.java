@@ -28,7 +28,7 @@ public class Main {
             robot.changeDirection(Direction.LEFT);
             robot.move(2);
         } catch (RobotCreationException e) {
-            System.err.printf("Создать робота не удалось!");
+            System.err.printf("Создать робота не удалось! " + e.getMessage());
         } catch (RobotMoveException e) {
             System.err.printf("Движение робота " + e.getRobot() + " не удалось!");
         }
@@ -37,7 +37,8 @@ public class Main {
             robot1.changeDirection(Direction.BOTTOM);
             robot1.move(3);
         } catch (RobotCreationException e) {
-            System.err.printf("Создать робота не удалось!");
+//            e.printStackTrace();
+            System.err.printf("Создать робота не удалось! " + e.getMessage());
         } catch (RobotMoveException e) {
             System.err.printf("Движение робота " + e.getRobot() + " не удалось!");
         }
