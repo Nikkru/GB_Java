@@ -9,14 +9,16 @@ public class ComparatorComparableDemo {
 
     public static void main(String[] args) {
         List<String> words = new ArrayList<>();
+        String[] array1 = new String[]{"ajsfhakfd", "fa", "bhhf", "add", "ppoqfhdkfajdsfi;ahdff"};
 //        List<String> words = new ArrayList<>(List.of(
 //                "ajsfhakfd", "fa", "bhhf", "add", "ppoqfhdkfajdsfi;ahdff"
 //        ));
-        words.add("ajsfhakfd");
-        words.add("fa");
-        words.add("bhhf");
-        words.add("add");
-        words.add("ppoqfhdkfajdsfi;ahdff");
+//        words.add("ajsfhakfd");
+//        words.add("fa");
+//        words.add("bhhf");
+//        words.add("add");
+//        words.add("ppoqfhdkfajdsfi;ahdff");
+        Collections.addAll(words, array1);
 
         // если s1 длиннее s2, то это означает, что s1 меньше, чем о2, то возвращаем любое отрицательное число
 //        Comparator<String> stringLengthComparator = (s1, s2) -> Integer.compare(s2.length(), s1.length());
