@@ -87,10 +87,10 @@ public class IterableIteratorDemo {
 //            System.out.println(integer);
         }
 
-        Iterator<Integer> iterator = integers.iterator();
+        Iterator<Integer> intIterator = integers.iterator();
         int sum = 0;
-        while (iterator.hasNext()) {
-            Integer integer = iterator.next();
+        while (intIterator.hasNext()) {
+            Integer integer = intIterator.next();
             sum += integer;
         }
 //        System.out.println(sum);

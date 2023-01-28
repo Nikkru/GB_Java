@@ -13,11 +13,6 @@ public class ComparatorComparableDemo {
 //        List<String> words = new ArrayList<>(List.of(
 //                "ajsfhakfd", "fa", "bhhf", "add", "ppoqfhdkfajdsfi;ahdff"
 //        ));
-//        words.add("ajsfhakfd");
-//        words.add("fa");
-//        words.add("bhhf");
-//        words.add("add");
-//        words.add("ppoqfhdkfajdsfi;ahdff");
         Collections.addAll(words, array1);
 
         // если s1 длиннее s2, то это означает, что s1 меньше, чем о2, то возвращаем любое отрицательное число
