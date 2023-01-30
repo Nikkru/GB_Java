@@ -1,9 +1,6 @@
 package org.example.lesson4;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -11,7 +8,7 @@ public class Main {
 //        genericIntro();
 //        genericExtendsDemo();
 
-        List<StringWrapper> first = new ArrayList<>(List.of(
+        List<StringWrapper> first = new ArrayList<>(Arrays.asList(
                 new StringWrapper("third"),
                 new StringWrapper("second"),
                 new StringWrapper("first")
