@@ -1,4 +1,4 @@
-package oop.lesson_05;
+package oop.lesson_05.Calc;
 
 import java.util.Scanner;
 

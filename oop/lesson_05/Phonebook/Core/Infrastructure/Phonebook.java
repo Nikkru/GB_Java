@@ -44,7 +44,7 @@ public class Phonebook {
 
     private boolean contains(int index) {
         return contacts != null
-                && contacts.size() > index;
+                || contacts.size() > index;
     }
 
     public List<Contact> getContacts() {
