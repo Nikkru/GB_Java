@@ -1,11 +1,16 @@
 package oop.lesson_05.CalcShapes;
 
+import oop.lesson_05.CalcShapes.Exception.UnacceptableValueException;
+
 public class Rectangle extends Shape {
 
     private double a;
     private double b;
 
-    public static Rectangle create( double a, double b, String name) {
+    public static Rectangle create( double a, double b, String name) throws UnacceptableValueException {
+        if (a <= 0 || b <= 0)
+            throw new UnacceptableValueException("Unacceptable height/width value of the new rectangle"
+                    + name + " <= 0");
         var instance = new Rectangle();
         instance.name = name;
         instance.a = a;

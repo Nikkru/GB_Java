@@ -1,8 +1,11 @@
 package oop.lesson_05.CalcShapes;
 
+import oop.lesson_05.CalcShapes.Exception.UnacceptableValueException;
+
 public class Circle extends Shape {
 
-    public static Circle create(double radius, String name) {
+    public static Circle create(double radius, String name) throws UnacceptableValueException {
+        if (radius < 0) throw new UnacceptableValueException("Unacceptable radius value of the new circle" + name + " < 0");
         var instance = new Circle();
         instance.name = name;
         instance.radius = radius;
