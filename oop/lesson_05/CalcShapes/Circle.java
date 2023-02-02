@@ -7,7 +7,7 @@ public class Circle extends Shape {
     public static Circle create(double radius, String name) throws UnacceptableValueException {
         if (radius < 0)
             throw new UnacceptableValueException("Unacceptable radius value of the new circle" + name + " < 0");
-        var instance = new Circle();
+        Circle instance = new Circle();
         instance.name = name;
         instance.radius = radius;
         return instance;

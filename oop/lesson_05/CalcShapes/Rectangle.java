@@ -11,7 +11,7 @@ public class Rectangle extends Shape {
         if (a <= 0 || b <= 0)
             throw new UnacceptableValueException("Unacceptable height/width value of the new rectangle"
                     + name + " <= 0");
-        var instance = new Rectangle();
+        Rectangle instance = new Rectangle();
         instance.name = name;
         instance.a = a;
         instance.b = b;

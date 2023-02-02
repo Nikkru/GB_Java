@@ -9,12 +9,17 @@ public class RobotMap {
     private final int maxSize;
     private final List<Robot> robots; // пустой список по умолчанию в экземпляре класса
 
-    public RobotMap(int n, int m, int maxRobotCount) {
+    public RobotMap(int n, int m, int maxRobotCount) throws MapCreationException {
         // TODO: 13.01.2023 Реализовать проверку входных параметров.
+        try {
         this.n = n;
         this.m = m;
         this.robots = new ArrayList<>();
         this.maxSize = maxRobotCount;
+        validateMapValue(n, m, maxRobotCount);
+        } catch (MapCreationException e) {
+            throw new MapCreationException(e.getMessage());
+        }
     }
 
     public Robot createRobot(Point point) throws RobotCreationException {
@@ -39,7 +44,7 @@ public class RobotMap {
     private void validatePointIsFree(Point point) throws PointValidationException {
         for (Robot robot : robots) {
             if (point.equals(robot.getPoint())) {
-                throw new PointValidationException("Позиция " + point + " занята другим роботом: " + robot);
+                throw new PointValidationException("Позиция " + point + " занята другим роботом: " + robot + " ");
             }
         }
     }
@@ -49,9 +54,26 @@ public class RobotMap {
      */
     private void validateCountRobotsIsntMore(int count_) throws RobotCreationException {
         if (count_ == maxSize) {
-            throw new RobotCreationException("Новый робот переполняет допустимый размер массива рботов - " + robots.size());
+            throw new RobotCreationException("Новый робот переполняет допустимый размер массива рботов - "
+                    + robots.size() + " ");
         }
     }
+
+    private void validateMapValue(int n, int m, int maxCount) throws MapCreationException {
+        if (n <=0 || m <=0) {
+            throw new MapCreationException("Площадь карты должна быть больше ноля ");
+        }
+        else if (maxCount <= 0 || maxCount > n*m) {
+            throw new MapCreationException("Карта должна принять хотя бы одного, " +
+                    "и не более ее площади - " + maxCount + " ");
+        }
+    }
+//    private void validateMaxCountRobotsValue(int n, int m, int maxCount) throws MapCreationException {
+//        if (maxCount <= 0 || maxCount > n*m) {
+//            throw new MapCreationException("Возможное количество роботов должно быть больше 0 " +
+//                    "и меньше площади карты - " + maxCount + " ");
+//        }
+//    }
 
     public class Robot {
 

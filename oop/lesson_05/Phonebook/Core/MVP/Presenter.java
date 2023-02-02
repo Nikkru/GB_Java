@@ -15,7 +15,7 @@ public class Presenter {
 
         if (model.currentBook().count() > 0) {
             model.setCurrentIndex(0);
-            var contact = model.currentContact();
+            Contact contact = model.currentContact();
 
             view.setFirstName(contact.firstName);
             view.setLastName(contact.lastName);

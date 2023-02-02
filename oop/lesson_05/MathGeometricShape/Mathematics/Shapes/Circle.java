@@ -9,7 +9,7 @@ public class Circle extends Shape {
         if (radius < 0)
             throw new UnacceptableValueException("radius < 0");
 
-        var instance = new Circle();
+        Circle instance = new Circle();
         instance.name = name;
         instance.radius = radius;
         return instance;

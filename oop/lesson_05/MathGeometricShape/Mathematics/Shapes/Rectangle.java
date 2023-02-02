@@ -7,7 +7,7 @@ public class Rectangle extends Shape {
 
     public static Rectangle create(double width, double height, String name) {
         // ???...
-        var instance = new Rectangle();
+        Rectangle instance = new Rectangle();
         instance.name = name;
 
         instance.width = width;
