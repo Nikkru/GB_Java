@@ -1,0 +1,6 @@
+homework_1.java
+homework_1
+.gitignore
+task3File.txt
+.git
+seminar_2
